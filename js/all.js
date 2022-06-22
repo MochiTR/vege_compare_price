@@ -133,7 +133,6 @@ ser_btn.addEventListener("click", function (e) {
         <th width="10%"><a href="#">交易量<i class="fas fa-sort"></i></a></th>
       </tr>` + no;
         result.innerHTML = no;
-        setPagination(eachdata, pagination, rows);
       } else {
       //   str =
       //     `<tr class="title">
