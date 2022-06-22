@@ -167,6 +167,7 @@ $(document).ready(function () {
   $("table").on("click", ".title th", function (e) {
     e.preventDefault();
     filterStatus = true;
+    currentPage=1;
     switch (this.textContent) {
       case "上價":
         if(reverseSort==0){
