@@ -3,6 +3,8 @@
 
 //篩選狀態
 let filterStatus = false;
+//頁碼1
+let generatePag = 0;
 
 // 目前頁數
 let currentPage=1;
@@ -24,6 +26,7 @@ category.addEventListener("click", function (e) {
   }
   e.preventDefault();
   filterStatus = false;
+  generatePag=0;
   categoryBtns.forEach(function(item){
     item.setAttribute("class","");
   });
@@ -92,6 +95,7 @@ let itemName = document.querySelector("#find");
 ser_btn.addEventListener("click", function (e) {
   filterStatus = false;
   currentPage=1;
+  generatePag=0;
   let str = "";
   let no = "";
   sorta = []; //每次搜尋時清空排序
@@ -168,6 +172,7 @@ $(document).ready(function () {
     e.preventDefault();
     filterStatus = true;
     currentPage=1;
+    generatePag=0;
     switch (this.textContent) {
       case "上價":
         if(reverseSort==0){
@@ -465,9 +470,15 @@ function setPagination (items, pag, quantity) {
   showScrollBtn();
 }
 
+
 function PaginationButton (page, items) {
 	let button = document.createElement('button');
 	button.innerText = page;
+  generatePag++;
+  
+  if(generatePag===1){
+    button.setAttribute('class','pag_active');
+  }
 
  $(button).on('click',function(){
    currentPage = page;
