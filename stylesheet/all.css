@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+body {
+  background: url(https://hexschool.github.io/js-filter/assets/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 24px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.logo {
+  margin-bottom: 24px;
+}
+.logo a {
+  background: url(https://firebasestorage.googleapis.com/v0/b/hexschool-courses.appspot.com/o/course%2FJS%20%E5%89%8D%E7%AB%AF%E4%BF%AE%E7%B7%B4%E5%85%A8%E6%94%BB%E7%95%A5%2F1628942714013-logo%20%E6%94%B9.png?alt=media&token=583e78ed-6a6c-4660-9f0e-2f59f8eb78e2);
+  width: 450px;
+  height: 105px;
+  display: block;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .logo a {
+    background: url(https://firebasestorage.googleapis.com/v0/b/hexschool-courses.appspot.com/o/course%2FJS%20%E5%89%8D%E7%AB%AF%E4%BF%AE%E7%B7%B4%E5%85%A8%E6%94%BB%E7%95%A5%2F1629001163643-logo-sm.png?alt=media&token=914f40fc-c143-4aaa-a1c3-fb0bdd17fa9c) no-repeat;
+    width: 178px;
+    height: 50px;
+    margin: 1.25rem auto;
+  }
+}
+
+.category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
+}
+.category li {
+  margin-right: 10px;
+}
+.category li a {
+  text-decoration: none;
+  color: black;
+  padding: 8px 40px;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: block;
+}
+.category li a:hover {
+  background: #f8d45a;
+  -webkit-box-shadow: 0 3px 2px black;
+          box-shadow: 0 3px 2px black;
+}
+.category .active {
+  background: #f8d45a;
+  -webkit-box-shadow: 0 3px 2px black;
+          box-shadow: 0 3px 2px black;
+}
+
+.main {
+  background: white;
+  outline: 5px solid white;
+  border: 3px solid #f8d45a;
+  border-radius: 8px;
+}
+.main .pag {
+  margin-top: 20px;
+  width: 500px;
+  height: 60px;
+  overflow: hidden;
+}
+.main .pag button {
+  width: 50px;
+  height: 50px;
+  color: #696969;
+  background: #F5F5F5;
+  border: 1px solid #D3D3D3;
+  border-radius: 5px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.main .pag button:hover {
+  background: #f8d45a;
+  color: black;
+}
+.main .pag .pag_active {
+  background: #f8d45a;
+  color: black;
+}
+.main .scrolldown, .main .scrollup {
+  color: #f8d45a;
+  background: none;
+  border: none;
+  padding: 0px;
+  width: 20px;
+  height: 20px;
+}
+.main .scrolldown svg, .main .scrollup svg {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  color: white;
+}
+@media (max-width: 767px) {
+  .search {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+.search label {
+  text-align: center;
+  background: #899e39;
+  border-radius: 2px;
+  padding: 15px 20px;
+}
+@media (max-width: 767px) {
+  .search label {
+    width: 28%;
+  }
+}
+.search #find {
+  padding: 8px 116px 8px 15px;
+  border: 2px solid #899e39;
+  border-radius: 5px;
+  margin-left: -5px;
+  margin-right: 12px;
+  font-size: 24px;
+}
+@media (max-width: 767px) {
+  .search #find {
+    width: 53%;
+    margin-right: 0px;
+    font-size: 16px;
+    padding: 14px 116px 14px 15px;
+  }
+}
+.search button {
+  padding: 8px 54px;
+  background: #899e39;
+  border-color: #899e39;
+  border-radius: 8px;
+  color: white;
+  font-size: 24px;
+}
+@media (max-width: 767px) {
+  .search button {
+    margin-top: 10px;
+    width: 80%;
+  }
+}
+
+.span {
+  line-height: 2.5;
+  margin-left: 85px;
+}
+@media (max-width: 767px) {
+  .span {
+    display: block;
+    text-align: center;
+    margin-left: 0px;
+  }
+}
+
+#filter {
+  float: right;
+  margin: 10px 85px 20px 0px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 2px solid #9a9a9a;
+}
+@media (max-width: 767px) {
+  #filter {
+    display: none;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+table td {
+  padding: 15px 0px;
+  border-bottom: 2px solid #9a9a9a;
+  font-size: 20px;
+  background: white;
+}
+@media (max-width: 767px) {
+  table td {
+    font-size: 16px;
+  }
+}
+table .title {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  background: #f4f1ea;
+}
+table .title th {
+  padding: 13px 0px;
+}
+table .title th a {
+  text-decoration: none;
+  color: gray;
+}
+@media (max-width: 767px) {
+  table .title th {
+    font-size: 16px;
+  }
+}
+table .init {
+  text-align: center;
+  border-bottom: 2px solid #9a9a9a;
+  padding: 13px 0px;
+}

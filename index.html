@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="./stylesheet/reset.css">
+    <link rel="stylesheet" href="./stylesheet/all.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo"><a href="#">農產品比價網</a></h1>
+        <div class="main">
+          <ul class="category">
+            <li class="kind"><a href="#" data-id="N04">蔬果</a></li>
+            <li class="kind"><a href="#" data-id="N05">水果</a></li>
+            <li class="kind"><a href="#" data-id="N06">花卉</a></li>
+          </ul>
+          <div class="search">
+            <label for="find">作物名稱</label>
+            <input id="find" type="text" placeholder="請輸入作物名稱"> <button class="search_btn">搜尋</button>
+          </div>
+          <span class="span">查看**的查詢結果</span>
+          <!--     <select name="filter" id="filter">
+            <option>排序篩選</option>
+            <option>依上價排序</option>
+            <option>依中價排序</option>
+            <option>依下價排序</option>
+            <option>依平均價排序</option>
+            <option>依交易量排序</option>
+          </select> -->
+          <div class="clear"></div>
+          <div class="table">
+            <table>
+              <tr class="title">
+                <th width="10%">作物名稱</th>
+                <th width="10%">市場名稱</th>
+                <th width="10%"><a href="#">上價<i class="fas fa-sort"></i></a></th>
+                <th width="10%"><a href="#">中價<i class="fas fa-sort"></i></a></th>
+                <th width="10%"><a href="#">下價<i class="fas fa-sort"></i></a></th>
+                <th width="10%"><a href="#">平均價<i class="fas fa-sort"></i></a></th>
+                <th width="10%"><a href="#">交易量<i class="fas fa-sort"></i></a></th>
+              </tr>
+              <tr class="items">
+                <td colspan="7" class="init">請輸入並搜尋想比價的作物名稱^＿^</td>
+              </tr>
+            </table>
+          </div>
+          <div style='display:flex;justify-content:center;align-items:center;'>
+          <div class="pag" style="display:inline-block"></div>
+          <div style='display:inline-block;'>
+            <button class="scrollup" style="display:none;"><i class="fa fa-caret-up" aria-hidden="true"></i></button><br>
+          <button class="scrolldown" style="display:none;"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+          </div>
+            </div>
+        </div>
+      </div>
+      <script src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="./js/all.js"></script>
+</body>
+</html>
