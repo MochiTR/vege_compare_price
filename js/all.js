@@ -1,6 +1,10 @@
 // 點擊蔬果/水果/花卉 搜尋對應種類
 // 點擊th上的價位資訊來排序搜尋後結果
 
+//篩選狀態
+let filterStatus = false;
+
+// 目前頁數
 let currentPage=1;
 
 //排序宣告
@@ -19,6 +23,7 @@ category.addEventListener("click", function (e) {
     return;
   }
   e.preventDefault();
+  filterStatus = false;
   categoryBtns.forEach(function(item){
     item.setAttribute("class","");
   });
@@ -54,7 +59,8 @@ function setCategory() {
           ]);
           // console.log(sorta);
           eachdata.push(`<tr><td>${response.data[i].作物名稱}</td><td>${response.data[i].市場名稱}</td><td>${response.data[i].上價}</td><td>${response.data[i].中價}</td><td>${response.data[i].下價}</td><td>${response.data[i].平均價}</td><td>${response.data[i].交易量}</td></tr>`);
-          // console.log(eachdata);
+          console.log("篩選時");
+          console.log(eachdata);
         }
       }
       // str =
@@ -84,6 +90,7 @@ let ser_btn = document.querySelector(".search_btn");
 let itemName = document.querySelector("#find");
 
 ser_btn.addEventListener("click", function (e) {
+  filterStatus = false;
   currentPage=1;
   let str = "";
   let no = "";
@@ -160,6 +167,7 @@ let reverseSort = 0;
 $(document).ready(function () {
   $("table").on("click", ".title th", function (e) {
     e.preventDefault();
+    filterStatus = true;
     switch (this.textContent) {
       case "上價":
         if(reverseSort==0){
@@ -331,31 +339,44 @@ $(document).ready(function () {
         }
         break;
     }
-
     sort = sort.map(function (item) {
       return item.map(function (item2) {
         return (item2 = `<td>${item2}</td>`);
       });
     });
+    
+    sort = sort.map(function(item){
+      return item.join('');
+    })
 
     sort = sort.map(function (item) {
       return (item = `<tr class="title">${item}</tr>`);
     });
-    sort = sort.toString();
-    sort = sort.replaceAll(",", "");
-    // console.log(sort);
-    sort =
-      `<tr class="title">
-        <th width="10%">作物名稱</th>
-        <th width="10%">市場名稱</th>
-        <th width="10%"><a href="#">上價<i class="fas fa-sort"></i></a></th>
-        <th width="10%"><a href="#">中價<i class="fas fa-sort"></i></a></th>
-        <th width="10%"><a href="#">下價<i class="fas fa-sort"></i></a></th>
-        <th width="10%"><a href="#">平均價<i class="fas fa-sort"></i></a></th>
-        <th width="10%"><a href="#">交易量<i class="fas fa-sort"></i></a></th>
-      </tr>` + sort;
+    console.log('iiii')
+    console.log(sort);
+    eachPage(sort,result,rows,currentPage);
+    setPagination(sort, pagination, rows);
 
-    result.innerHTML = sort;
+    // sort = sort.toString();
+    // sort = sort.replaceAll(",", "");
+    // console.log(sort);
+
+    // sort =
+    //   `<tr class="title">
+    //     <th width="10%">作物名稱</th>
+    //     <th width="10%">市場名稱</th>
+    //     <th width="10%"><a href="#">上價<i class="fas fa-sort"></i></a></th>
+    //     <th width="10%"><a href="#">中價<i class="fas fa-sort"></i></a></th>
+    //     <th width="10%"><a href="#">下價<i class="fas fa-sort"></i></a></th>
+    //     <th width="10%"><a href="#">平均價<i class="fas fa-sort"></i></a></th>
+    //     <th width="10%"><a href="#">交易量<i class="fas fa-sort"></i></a></th>
+    //   </tr>` + sort;
+
+    // result.innerHTML = sort;
+
+
+
+
     // let sortArr=sort.toString();
     // console.log(sortArr);
   });
@@ -454,7 +475,11 @@ function PaginationButton (page, items) {
 $(this).siblings().removeClass('pag_active');
     button.setAttribute('class','pag_active');
    
+    if(filterStatus === true) {
+      eachPage(sort,result,rows,currentPage);
+    } else {
 		eachPage(eachdata,result,rows,currentPage);
+  }
  })   
 	return button;
 }
