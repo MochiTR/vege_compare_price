@@ -137,6 +137,7 @@ ser_btn.addEventListener("click", function (e) {
         <th width="10%"><a href="#">交易量<i class="fas fa-sort"></i></a></th>
       </tr>` + no;
         result.innerHTML = no;
+        setPagination("", pagination, rows);
       } else {
       //   str =
       //     `<tr class="title">
@@ -467,7 +468,7 @@ function setPagination (items, pag, quantity) {
 		let btn = PaginationButton(i, items);
 		pag.appendChild(btn);
 	}
-  showScrollBtn();
+  showScrollBtn(items);
 }
 
 
@@ -495,11 +496,17 @@ $(this).siblings().removeClass('pag_active');
 	return button;
 }
 
-function showScrollBtn() {
+function showScrollBtn(items) {
   let scrolldown = document.querySelector('.scrolldown');
   let scrollup = document.querySelector('.scrollup');
+  if(items===""){
+    scrolldown.setAttribute('style','display:none;');
+    scrollup.setAttribute('style','display:none;');
+  }
+  else {
   scrolldown.setAttribute('style','display:inline-block;');
   scrollup.setAttribute('style','display:inline-block;');
+}
   scrolldown.onclick = function(){
   pagination.scrollTo ({
   top:pagination.scrollTop+70, behavior:"smooth"
