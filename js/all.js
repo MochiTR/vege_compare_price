@@ -25,6 +25,7 @@ category.addEventListener("click", function (e) {
     return;
   }
   e.preventDefault();
+  resetScroll();
   filterStatus = false;
   generatePag=0;
   categoryBtns.forEach(function(item){
@@ -96,6 +97,7 @@ ser_btn.addEventListener("click", function (e) {
   filterStatus = false;
   currentPage=1;
   generatePag=0;
+  resetScroll();
   let str = "";
   let no = "";
   sorta = []; //每次搜尋時清空排序
@@ -174,6 +176,7 @@ $(document).ready(function () {
     filterStatus = true;
     currentPage=1;
     generatePag=0;
+    resetScroll();
     switch (this.textContent) {
       case "上價":
         if(reverseSort==0){
@@ -517,4 +520,10 @@ scrollup.onclick = function(){
   top:pagination.scrollTop-70, behavior:"smooth"
 });
 };
+}
+
+function resetScroll() {
+  pagination.scrollTo ({
+    top:0, behavior:"smooth"
+  });
 }
