@@ -156,9 +156,6 @@ body {
     }
   }
 }
-// .table {
-//   border: 1px solid black;
-// }
 .span {
   line-height: 2.5;
   margin-left: 85px;
@@ -181,10 +178,14 @@ body {
 .clear {
   clear: both;
 }
+.table {
+  overflow:auto;
+}
 table {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  white-space: nowrap;
   td {
     padding: 15px 0px;
     border-bottom: 2px solid #9a9a9a;
