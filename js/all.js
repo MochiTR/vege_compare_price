@@ -109,7 +109,7 @@ ser_btn.addEventListener("click", function (e) {
         console.log(str);
         // alert(typeof itemName.value);
         // alert(typeof response.data[i].作物名稱);
-        if (itemName.value === response.data[i].作物名稱) {
+        if (response.data[i].作物名稱!==null && response.data[i].作物名稱.match(itemName.value)!==null) {
           str += `<tr><td>${response.data[i].作物名稱}</td><td>${response.data[i].市場名稱}</td><td>${response.data[i].上價}</td><td>${response.data[i].中價}</td><td>${response.data[i].下價}</td><td>${response.data[i].平均價}</td><td>${response.data[i].交易量}</td></tr>`;
 
           //把結果新增到陣列
