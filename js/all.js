@@ -92,8 +92,15 @@ function setCategory() {
 //按照名稱搜尋
 let ser_btn = document.querySelector(".search_btn");
 let itemName = document.querySelector("#find");
-
+document.addEventListener('keydown',function(e){
+  if(e.code==='Enter') {
+    searchEvent()
+  }
+})
 ser_btn.addEventListener("click", function (e) {
+  searchEvent()
+});
+function searchEvent() {
   filterStatus = false;
   currentPage=1;
   generatePag=0;
@@ -163,8 +170,7 @@ ser_btn.addEventListener("click", function (e) {
     return console.log(error);
   })
   result.innerHTML = `<td colspan="7" class="init">搜尋中...</td>`;
-
-});
+}
 
 //排序篩選 jquery
 let table_filter = document.querySelectorAll(".title th");
