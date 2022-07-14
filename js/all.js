@@ -49,6 +49,7 @@ function setCategory() {
     .then(function (response) {
       for (let i = 0; i < response.data.length; i++) {
         if (kind == response.data[i].種類代碼) {
+          getPage(currentPage)
           str += `<tr><td>${response.data[i].作物名稱}</td><td>${response.data[i].市場名稱}</td><td>${response.data[i].上價}</td><td>${response.data[i].中價}</td><td>${response.data[i].下價}</td><td>${response.data[i].平均價}</td><td>${response.data[i].交易量}</td></tr>`;
 
           //把結果新增到陣列
@@ -117,6 +118,7 @@ function searchEvent() {
         // alert(typeof itemName.value);
         // alert(typeof response.data[i].作物名稱);
         if (response.data[i].作物名稱!==null && response.data[i].作物名稱.match(itemName.value)!==null) {
+          getPage(currentPage)
           str += `<tr><td>${response.data[i].作物名稱}</td><td>${response.data[i].市場名稱}</td><td>${response.data[i].上價}</td><td>${response.data[i].中價}</td><td>${response.data[i].下價}</td><td>${response.data[i].平均價}</td><td>${response.data[i].交易量}</td></tr>`;
 
           //把結果新增到陣列
@@ -472,6 +474,7 @@ function setPagination (items, pag, quantity) {
 	pag.innerHTML = "";
 
 	let pageCount = Math.ceil(items.length / quantity);
+  totalPage(pageCount);
 
 	for (let i = 1; i < pageCount + 1; i++) {
 		let btn = PaginationButton(i, items);
@@ -492,6 +495,7 @@ function PaginationButton (page, items) {
 
  $(button).on('click',function(){
    currentPage = page;
+   getPage(currentPage)
    
 $(this).siblings().removeClass('pag_active');
     button.setAttribute('class','pag_active');
@@ -532,4 +536,14 @@ function resetScroll() {
   pagination.scrollTo ({
     top:0, behavior:"smooth"
   });
+}
+
+function getPage(page) {
+const currentPage = document.querySelector('.currentPage');
+currentPage.textContent=page;
+}
+
+function totalPage(page) {
+const totalPage = document.querySelector('.totalPage');
+totalPage.textContent=page;
 }
