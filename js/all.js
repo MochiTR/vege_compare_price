@@ -547,3 +547,8 @@ function totalPage(page) {
 const totalPage = document.querySelector('.totalPage');
 totalPage.textContent=page;
 }
+
+$('table').on('click','tr td',function(e) {
+  itemName.value=$(this).text();
+  searchEvent()
+})
