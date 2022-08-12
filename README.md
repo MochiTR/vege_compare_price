@@ -4,12 +4,15 @@
 
 ## 說明
 
-JavaScript為主，可選分類或是搜尋名稱來查找目標，可做篩選
+JavaScript為主，可選分類或是搜尋名稱來查找目標，可做篩選   
+
 點擊作物名稱可列出 "相同名稱作物" 以便進行比價
 
 ## demo
+[Github Page](https://mochitr.github.io/vege_compare_price/)   
+
 ![vege_compare_price.png](https://imgur.com/uLuvwXM.gif)
-[Github Page](https://mochitr.github.io/vege_compare_price/)
+
 
 ## 使用技術
 + JavaScript
